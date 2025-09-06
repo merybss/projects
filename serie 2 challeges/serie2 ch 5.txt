@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+
+   int an,conversion;
+   char options;
+    printf("entree le nombre annee: \n");
+    scanf("%d",&an);
+    printf("choisi une option: \n");
+    printf("m : pour convertir en mois \n");
+    printf("j : pour convertir en jours \n");
+    printf("h : pour convertir en heures \n");
+    printf("i : pour convertir en minutes \n");
+    printf("s : pour convertir en seconde  \n");
+    scanf(" %c",&options);
+
+    if(options=='m'){
+           conversion= an * 12;
+        printf("alors l'annee en mois vaut:%d \n",conversion);
+    }
+     else if(options=='j') {
+            conversion= an * 365;
+        printf("alors l'annee en mois vaut:%d \n",conversion);
+    }
+     else if(options == 'h') {
+            conversion= an * 365 * 24;
+        printf("alors l'annee en heures vaut:%d \n",conversion);
+    }
+    else if(options == 'i') {
+            conversion= an * 365 * 24 * 60;
+        printf("alors l'annee en minutes vaut:%d \n",conversion);
+    }
+    else if(options == 's') {
+            conversion= an * 365 * 24 * 60 * 60;
+        printf("alors l'annee en secondes vaut:%d \n",conversion);
+    }
+    else {
+        printf("option invalide !\n");
+    }
+    return 0;
+}

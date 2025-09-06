@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int JJ,MM,AAAA;
+    printf("entrer la date au format suivant JJ/MM/AAAA: \n");
+    scanf("%d/%d/%d",&JJ,&MM,&AAAA);
+    switch(MM){
+   case(1):
+        printf("%d-janvier-%d ;\n", JJ, AAAA);
+       break;
+    case(2):
+        printf("%d-fevrier-%d \n", JJ, AAAA);
+      break;
+    case(3):
+        printf("%d-mars-%d \n", JJ, AAAA);
+      break;
+    case(4):
+        printf("%d-avril-%d \n", JJ, AAAA);
+      break;
+    case(5):
+        printf("%d-mai-%d \n", JJ, AAAA);
+     break;
+    case(6):
+        printf("%d-juin-%d\n", JJ, AAAA);
+     break;
+    case(7):
+        printf("%d-juillet-%d\n", JJ, AAAA);
+    case(8):
+        printf("%d-aout-%d\n", JJ, AAAA);
+     break;
+    case(9):
+        printf("%d-septembre-%d\n", JJ, AAAA);
+    break;
+    case(10):
+        printf("%d-octobre-%d\n", JJ, AAAA);
+    break;
+    case(11):
+        printf("%d-novembre-%d\n", JJ, AAAA);
+    break;
+    case(12):
+        printf("%d-decembre-%d\n", JJ, AAAA);
+    break;
+    default:
+        printf("il ya que 12 mois");
+    }
+
+    return 0;
+}
