@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,somme,i;
+    somme=0;
+    printf("combien d'elements?: \n");
+    scanf("%d",&n);
+    int T[n];
+    for(i=0;i<n;i++){
+        printf("entrer element %d\n" ,i+1);
+        scanf(" %d",&T[i]);
+        somme=somme+T[i];
+    }
+     printf("la somme des element de tableau est: %d\n",somme);
+    return 0;
+}

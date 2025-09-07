@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i;
+
+    printf("combient d'element veut tu inserer?: ");
+    scanf("%d",&n);
+     int T[n];
+    for(i=0;i < n;i++){
+        printf("entrer l'element %d: \n",i+1);
+        scanf("%d",&T[i]);
+     }
+     for(i=0;i < n; i++){
+        printf("%d",T[i]);
+    }
+
+
+    return 0;
+}
