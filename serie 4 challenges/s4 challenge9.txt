@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i;
+    printf("Combien d'elements voulez-vous entrer ? : ");
+    scanf("%d", &n);
+
+    int t[n],inverse[n];
+
+    for(i = 0; i < n; i++){
+        printf("Entrer l'element %d : ", i+1);
+        scanf("%d", &t[i]);
+    }
+
+    for(i = 0; i < n; i++){
+        inverse[i]=t[n-1-i];
+    }
+    printf("l'inverse de tableau est :\n");
+    for(i = 0; i < n; i++){
+        printf("%d ",inverse[i]);
+    }
+    printf("\n");
+
+    return 0;
+}

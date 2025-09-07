@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, i;
+    printf("Combien d'elements voulez-vous entrer ? : ");
+    scanf("%d", &n);
+
+    int t[n], remp[n];
+    for(i = 0; i < n; i++){
+        printf("Entrer l'element %d : ", i+1);
+        scanf("%d", &t[i]);
+    }
+    printf("Entrer les elements remplacants :\n");
+    for(i = 0; i < n; i++){
+        printf("Nouvelle valeur pour l'element %d : ", i+1);
+        scanf("%d", &remp[i]);
+    }
+    for(i = 0; i < n; i++){
+        t[i] = remp[i];
+    }
+    printf("Le tableau modifie est :\n");
+    for(i = 0; i < n; i++){
+        printf("%d ", t[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
