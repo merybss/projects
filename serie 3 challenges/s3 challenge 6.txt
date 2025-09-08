@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,n;
+    printf("entrer un nombre entier: \n");
+    scanf(" %d",&n);
+
+    for(i = 0; i < n;i = i+2 ){
+    printf("%d\n",i);
+}
+    return 0;
+}

@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+//Développez un programme qui calcule une puissance en utilisant uniquement des boucles.
+//Paramètres d'entrée :
+//● Base (nombre à élever)
+//● Exposant (puissance à appliquer)
+//Méthode : Multiplication répétée → base × base × ... × base (exposant fois)
+//Exemple : 3⁴ = 3 × 3 × 3 × 3 = 81
+//Cas particuliers à gérer :
+//● Exposant = 0 → Résultat = 1
+//● Exposant négatif (optionnel)
+//Objectif : Implémenter des algorithmes mathématiques avec des boucles.
+
+int main()
+{
+    int i,b,e,m;
+    m=1;
+    printf("entrer la base: \n");
+    scanf(" %d",&b);
+
+    printf("entrer l'exposant: \n");
+    scanf(" %d",&e);
+
+     if(e==0){
+        printf("%d puissance %d=1",b,e);
+    }else{
+
+    for(i = 1;i <= e; i++){
+            m= m * b;
+
+    }
+printf("%d puissance %d = %d \n",b,e,m);
+
+}
+
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i,x,r;
+
+    printf("entrer un nombre n: \n");
+    scanf(" %d",&n);
+    for(i = 1;i <= (n+1)/2; i++){
+      x=(2*i)-1;
+      printf("pour n=%d:\n%d \n",n,x);
+
+
+    }
+
+
+
+
+    return 0;
+}
