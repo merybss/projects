@@ -1,0 +1,23 @@
+
+#include <stdio.h>
+#include <string.h>
+
+ int pair (int nombre) {
+   if(nombre % 2 == 0) {
+     return 1;
+    } else{
+     return 0;
+  }
+}
+    int main() {
+    int n;
+    printf("entrer le nombre n: ");
+    scanf("%d",&n);
+    if(pair(n)){
+   
+    printf("le nombre %d est pair",n);
+    }
+    else
+    printf("le nombre %d est impair",n);
+    return 0;
+}

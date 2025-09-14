@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+
+
+ int maximum(int a, int b) {
+     if(a>b)
+    return a;
+    else
+    return b;
+ }
+
+int main() {
+   int x,y,max;
+   
+   printf("entrer x :");
+   scanf("%d",&x);
+    printf("entrer y :");
+   scanf("%d",&y);
+   
+   max = maximum(x,y);
+    printf("le nombre maximum est %d",max);
+
+    return 0;
+}

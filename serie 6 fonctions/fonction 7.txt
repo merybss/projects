@@ -1,0 +1,23 @@
+
+#include <stdio.h>
+#include <string.h>
+
+
+ void inverser_chaine(char a[50]) {
+     int longeur=strlen(a);
+       for(int i=0 ;i<longeur/2 ;i++) {
+          char temp= a[i]; 
+         a[i]=a[longeur-1-i];
+         a[longeur-1-i]=temp;
+     }
+ }
+    int main() {
+    char chaine[50];
+   
+    printf("entrer la chaine de caractere: ");
+    fgets(chaine,sizeof(chaine),stdin);
+   
+    inverser_chaine(chaine);
+    printf("la chaine inverse est %s",chaine);
+    return 0;
+}

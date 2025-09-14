@@ -1,0 +1,29 @@
+
+#include <stdio.h>
+
+
+int i;
+ long long factorielle(int n) {
+     long long resultat =1 ;
+     for(i=1 ;i<=n ;i++) {
+        resultat = resultat*i;
+     }
+     return resultat;
+ }
+
+int main() {
+   int x;
+   long long fact;
+   
+   printf("entrer x: ");
+   scanf("%d",&x);
+   
+    if(x==0) {
+        printf("le factorielle de 0 est 1");
+   } else {
+         fact = factorielle(x);
+    printf("le factorielle de %d est %lld \n",x,fact);
+   
+    }
+    return 0;
+}

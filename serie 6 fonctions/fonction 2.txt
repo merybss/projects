@@ -1,0 +1,20 @@
+
+#include <stdio.h>
+
+
+int produit (int a,int b){
+return a*b;
+}
+int main() {
+   int x,y,resultat;
+   
+   printf("entrer x :");
+   scanf("%d",&x);
+    printf("entrer y :");
+   scanf("%d",&y);
+   
+   resultat=produit(x,y);
+    printf("le produit est %d",resultat);
+
+    return 0;
+}
