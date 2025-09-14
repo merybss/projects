@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct rectangle{
+    float longeur;
+    float largeur;
+};
+
+ float aire(float L,float l){
+ return L*l;
+ }
+
+int main()
+{
+    struct rectangle rect;
+      rect.longeur=4;
+      rect.largeur=2;
+
+    float surface=aire(rect.longeur,rect.largeur);
+    printf("l'aire du rectangle est %2.f",surface);
+
+    return 0;
+}
