@@ -1,0 +1,18 @@
+
+#include <stdio.h>
+
+int main() {
+  char a[50];
+  int i;
+
+  printf("entrer la chaine a calculer: \n");
+  fgets(a,sizeof(a),stdin);
+
+  for(i=0;a[i]!='\0';i++){
+  }
+  printf("le nombre de caractere est %d\n",i-1);
+    return 0;
+
+}
+
+

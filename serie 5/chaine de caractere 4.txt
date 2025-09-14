@@ -1,0 +1,22 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  char a[10];
+  char b[10];
+  printf("entrer la chaine a: ");
+  fgets(a,sizeof(a),stdin);
+   printf("entrer la chaine b: ");
+  fgets(b,sizeof(b),stdin);
+ if(strcmp(a,b)==0){
+     printf("les deux chaine sont identique");
+ }
+  else
+  printf("les deux chaine sont different");
+  
+    return 0;
+
+}       
+        
+        

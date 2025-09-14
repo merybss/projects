@@ -1,0 +1,16 @@
+
+#include <stdio.h>
+
+int main() {
+  char a[50];
+
+ printf("entrer les element de la chaine: ");
+ fgets(a,sizeof(a),stdin);
+ printf("votre chaine est %s",a);
+
+
+    return 0;
+
+}
+
+
