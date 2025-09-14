@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char a[50];
+    char sans_espace[50];
+    int i,x=0;
+
+    printf("entrer la chaine originale: \n");
+    fgets(a,sizeof(a),stdin);
+
+    a[strcspn(a, "\n")]='\0';
+
+    for(i=0;a[i]!='\0';i++){
+      if(a[i]!= ' '){
+        sans_espace[x]=a[i];
+        x++;
+      }
+    }
+
+  sans_espace[x]='\0';
+
+printf("la nouvelle chaine sans espace est %s \n",sans_espace);
+    return 0;
+}

@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char principale[50];
+    char sous_chaine[50];
+
+
+    printf("entrer la chaine principale: ");
+    fgets(principale,sizeof(principale),stdin);
+    printf("entrer sous_chaine : ");
+    fgets(sous_chaine,sizeof(sous_chaine),stdin);
+
+    principale[strcspn(principale, "\n")]='\0';
+    sous_chaine[strcspn(sous_chaine, "\n")]='\0';
+
+
+
+        if(strstr(principale, sous_chaine) !=NULL){
+           printf("la sous chaine \"%s\" existe pas dans la chaine principale",sous_chaine);
+    }
+           else{
+             printf("la sous chaine \"%s\" n'existe dans la chaine principale",sous_chaine);
+           }
+
+
+
+
+    return 0;
+}

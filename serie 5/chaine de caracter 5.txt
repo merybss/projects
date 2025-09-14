@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+int main()
+{
+
+char a[50];
+char temp;
+int i,longeur;
+
+    printf("entrer la chaine de caractere a: \n");
+    fgets(a,sizeof(a),stdin);
+
+    a[strcspn(a, "\n")]= '\0';
+
+   longeur = strlen(a);
+
+    for(i=0;i<longeur/2;i++){
+        temp=a[i];
+        a[i]=a[longeur-1-i];
+        a[longeur-i-1]=temp;
+}
+printf("la chaine inverse est %s ", a);
+    return 0;
+}
