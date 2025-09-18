@@ -1,4 +1,5 @@
 // Un mini moteur de recherche qui analyse un texte saisi par l’utilisateur.
+// Il construit un dictionnaire de mots uniques et fournit plusieurs fonctionnalités :
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,13 +27,16 @@ void analyserTexte(char texte[]);
 void afficherDictionnaire(void);
 void rechercherExact(char cherche[]);
 void rechercherPartiel(char partiel[]);
+void statistiquesGlobales(void);
 void triAlpha();
 void triFreq();
 void triLongueur();
+
 // Vérifier si un caractère est une lettre
 int estLettre(char c){
     return ( (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') );
 }
+
 // Analyser un texte et extraire les mots
 void analyserTexte(char texte[]){
     char mot[TAILLE_MOT];
@@ -64,8 +68,7 @@ void analyserTexte(char texte[]){
 // Ajouter un mot au dictionnaire
 void ajouterMot(char ajoute[], int position){
     int i = 0;
-    if(strlen(ajoute) == 0)
-        return;
+    if(strlen(ajoute) == 0) return;
 
     while(i < nbMots){
         if(strcmp(dictionnaire[i].mot, ajoute) == 0){
@@ -75,6 +78,7 @@ void ajouterMot(char ajoute[], int position){
         }
         i++;
     }
+
     strcpy(dictionnaire[nbMots].mot, ajoute);
     dictionnaire[nbMots].occurrences = 1;
     dictionnaire[nbMots].longueur = strlen(ajoute);
@@ -95,14 +99,15 @@ void afficherDictionnaire(){
         printf("\n");
     }
 }
+
 // Recherche exacte
 void rechercherExact(char cherche[]){
     int i,j;
-    for(i=0;i<nbMots;i++){//on parcourt tous les mots uniques du dictionnaire.
+    for(i=0;i<nbMots;i++){
         if(strcmp(dictionnaire[i].mot, cherche) == 0){
             printf("mot = %s | occurrences = %d | longueur = %d | positions = ",
                    dictionnaire[i].mot, dictionnaire[i].occurrences, dictionnaire[i].longueur);
-            for(j=0;j<dictionnaire[i].nbPositions;j++){//pour afficher toute les positions
+            for(j=0;j<dictionnaire[i].nbPositions;j++){
                 printf("%d ", dictionnaire[i].positions[j]);
             }
             printf("\n");
@@ -114,7 +119,7 @@ void rechercherExact(char cherche[]){
 
 // Recherche partielle
 void rechercherPartiel(char partiel[]){
-    int i, trouve = 0;//au moins un mot contient la sous chaine
+    int i, trouve = 0;
     for(i=0;i<nbMots;i++){
         if(strstr(dictionnaire[i].mot, partiel) != NULL){
             printf("%s | occurrences = %d | longueur = %d\n",
@@ -129,8 +134,8 @@ void rechercherPartiel(char partiel[]){
 void triAlpha() {
     int i, j;
     Mot temp;
-    for(i = 0; i < nbMots - 1; i++) {//parcourut chaque mot au dictionnaire
-        for(j = i + 1; j < nbMots; j++) {//compare avec tout les mots situe apres i
+    for(i = 0; i < nbMots - 1; i++) {
+        for(j = i + 1; j < nbMots; j++) {
             if(strcmp(dictionnaire[i].mot, dictionnaire[j].mot) > 0) {
                 temp = dictionnaire[i];
                 dictionnaire[i] = dictionnaire[j];
@@ -170,6 +175,45 @@ void triLongueur(){
     }
 }
 
+// Statistiques globales
+void statistiquesGlobales(){
+    int i;
+    int total = 0, totalMots = 0, maxLong = 0, minLong = TAILLE_MOT, maxFreq = 0;
+    char plusLong[TAILLE_MOT] = "";
+    char plusCourt[TAILLE_MOT] = "";
+    char plusFrequent[TAILLE_MOT] = "";
+
+    if(nbMots == 0){
+        printf("Aucun mot analysé.\n");
+        return;
+    }
+
+    for(i=0;i<nbMots;i++){
+        total += dictionnaire[i].longueur * dictionnaire[i].occurrences;
+        totalMots += dictionnaire[i].occurrences;
+
+        if(dictionnaire[i].longueur > maxLong){
+            maxLong = dictionnaire[i].longueur;
+            strcpy(plusLong, dictionnaire[i].mot);
+        }
+        if(dictionnaire[i].longueur < minLong){
+            minLong = dictionnaire[i].longueur;
+            strcpy(plusCourt, dictionnaire[i].mot);
+        }
+        if(dictionnaire[i].occurrences > maxFreq){
+            maxFreq = dictionnaire[i].occurrences;
+            strcpy(plusFrequent, dictionnaire[i].mot);
+        }
+    }
+
+    printf("Nombre total de mots : %d\n", totalMots);
+    printf("Mots uniques : %d\n", nbMots);
+    printf("Longueur moyenne : %.2f\n", (double)total/totalMots);
+    printf("Mot le plus court : %s\n", plusCourt);
+    printf("Mot le plus long : %s\n", plusLong);
+    printf("Mot le plus fréquent : %s (%d)\n", plusFrequent, maxFreq);
+}
+
 // Fonction principale
 int main(){
     char texte[TAILLE_TEXTE], saisie[TAILLE_MOT];
@@ -182,7 +226,8 @@ int main(){
         printf("3. Rechercher un mot exact\n");
         printf("4. Rechercher une sous-chaine\n");
         printf("5. Trier les mots\n");
-        printf("6. Quitter\n");   // le menu a changé
+        printf("6. Statistiques globales\n");
+        printf("7. Quitter\n");   // <-- le menu change
         printf("Choix : ");
         scanf("%d", &choix);
         getchar(); // supprimer le retour chariot
@@ -215,7 +260,9 @@ int main(){
                 else if(s==3) triLongueur();
                 printf("Tri effectué !\n");
                 break;
-            case 6: exit(0);   // quitter directement
+            case 6: statistiquesGlobales();
+                break;
+            case 7: exit(0);   // <-- quitter directement
         }
     }
 }
